@@ -11,6 +11,6 @@ def index():
 
 
 
-@app.route('/frequentFlights', methods=['GET'])
+@app.route('/flight', methods=['GET', 'POST'])
 def function():
     pass 
