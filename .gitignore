@@ -1,1 +1,4 @@
 db/postgresVolume
+.env
+.vscode
+__pycache__
