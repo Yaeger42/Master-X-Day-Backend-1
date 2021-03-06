@@ -40,6 +40,11 @@
     </div>
     <div class="container row">
         <section class="mt-3 col-md-12">
+            <button class="btn btn-primary" type="button" onclick="createFlights()" >
+                Add Flight
+            </button>
+        </section>
+        <section class="mt-3 col-md-12">
             <h3>Total Flights <span id="lbltotalflights" class="badge bg-success">5</span></h3>
             <table class="table">
                 <thead>
@@ -49,15 +54,17 @@
                         <th scope="col">Country</th>
                         <th scope="col">Flight time</th>
                         <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="totalFlightsTable" >
                     <tr>
                         <th scope="row">1</th>
                         <td>Bogotá</td>
                         <td>Colombia</td>
                         <td>2 hours</td>
                         <td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights()" /></td>
+                        <td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights()" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -72,15 +79,17 @@
                         <th scope="col">Country</th>
                         <th scope="col">Flights</th>
                         <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="HTFlightsTable" >
                     <tr>
                         <th scope="row">1</th>
                         <td>Bogotá</td>
                         <td>Colombia</td>
                         <td>5</td>
                         <td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights()" /></td>
+                        <td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights()" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -95,15 +104,17 @@
                         <th scope="col">Country</th>
                         <th scope="col">Flights</th>
                         <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="ActiveFlightsTable" >
                     <tr>
                         <th scope="row">1</th>
                         <td>Bogotá</td>
                         <td>Colombia</td>
                         <td>5</td>
                         <td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights()" /></td>
+                        <td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights()" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -118,15 +129,17 @@
                         <th scope="col">Country</th>
                         <th scope="col">Flights</th>
                         <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="OurPassengers" >
                     <tr>
                         <th scope="row">1</th>
                         <td>Bogotá</td>
                         <td>Colombia</td>
                         <td>5</td>
                         <td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights()" /></td>
+                        <td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights()" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -142,7 +155,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="form-row">                            
+                        <form class="form row">                            
                             <div class="mb-3 col-md-3">
                                 <label for="exampleInputEmail1" class="form-label">Origin</label>
                                 <select class="form-select" aria-label="Select Origin">
@@ -155,7 +168,16 @@
                             <div class="mb-3 col-md-3">
                                 <label for="exampleInputEmail1" class="form-label">Destination</label>
                                 <select class="form-select" aria-label="Select Destination">
-                                    <option selected>Select Origin</option>
+                                    <option selected>Select Destination</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="exampleInputEmail1" class="form-label">Destination</label>
+                                <select class="form-select" aria-label="Select Destination">
+                                    <option selected>Open this select menu</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -188,7 +210,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure of Delete this Flight?</p>
+                        <p>Are you sure of Delete the Flight <span id="deleteidlabel"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -202,15 +224,35 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create a new Flight</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form class="form-row">
                             <div class="mb-3 col-md3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <label for="destination_field" class="form-label">Destination</label>
+                                <input type="text" class="form-control" id="destination_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="origin_field" class="form-label">Origin</label>
+                                <input type="text" class="form-control" id="origin_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="arrival_input" class="form-label">Arrival</label>
+                                <input type="date" class="form-control" id="arrival_input">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="departure_input" class="form-label">Departure</label>
+                                <input type="date" class="form-control" id="departure_input"
                                     aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="passenger_number_field" class="form-label">Amount of Passengers</label>
+                                <input type="number" class="form-control" id="passenger_number_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="boarding_gate_input" class="form-label">Boarding Gate</label>
+                                <input type="text" class="form-control" id="boarding_gate_input">
                             </div>
                         </form>
                     </div>
