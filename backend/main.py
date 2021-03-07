@@ -100,14 +100,6 @@ def index():
     }
 
 
-@app.route('/flight', methods=['GET', 'POST'])
-def function():
-    if request.method == 'GET':
-        flightStatus = FlightStatusModel.query.all()
-        results = [{"id": fl.id,"name": fl.name}for fl in flightStatus ]
-
-        return {"flights": results}
-
 
 @app.route('/allflights', methods=['GET'])
 def getAllFlights():
@@ -124,7 +116,7 @@ def getAllFlights():
             "flightStatusId": flight.flightstatusid
         }for flight in flights]
 
-        return {"all flights": results}
+        return {"all_flights": results}
 
 
 @app.route('/locations', methods=['GET'])
@@ -137,4 +129,17 @@ def getAllLocations():
             "country": location.country
         }for location in locations]
 
-        return {"all locations": results}
+        return {"all_locations": results}
+
+
+
+@app.route('/boardinggates', methods=['GET'])
+def getAllBoardingGates():
+    if request.method == 'GET':
+        boardingGates = BoardingGatesModel.query.all()
+        results = [{
+            "id": gate.id,
+            "name": gate.name
+
+        }for gate in boardingGates]
+        return {"all_boardging_gates": results}
