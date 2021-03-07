@@ -9,7 +9,6 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: root
-      POSTGRES_DATABASE: 
     ports:
       - "5432:5432"
 
