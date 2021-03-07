@@ -102,16 +102,9 @@ def index():
     }
 
 
-@app.route('/flight', methods=['GET', 'POST'])
-def function():
-    if request.method == 'GET':
-        flightStatus = FlightStatusModel.query.all()
-        results = [{"id": fl.id,"name": fl.name}for fl in flightStatus ]
-
-        return {"flights": results}
 
 
-@app.route('/all_flights', methods=['GET'])
+@app.route('/flights', methods=['GET'])
 def getAllFlights():
     if request.method == 'GET':
         flights = FlightsModel.query.all()
@@ -126,7 +119,7 @@ def getAllFlights():
             "flightStatusId": flight.flightstatusid
         }for flight in flights]
 
-        return {"all flights": results}
+        return {"all_flights": results}
 
 
 @app.route('/locations', methods=['GET'])
@@ -139,10 +132,24 @@ def getAllLocations():
             "country": location.country
         }for location in locations]
 
-        return {"all locations": results}
+        return {"all_locations": results}
+
+
+@app.route('/boardinggates', methods=['GET'])
+def getAllBoardingGates():
+    if request.method == 'GET':
+        locations = BoardingGatesModel.query.all()
+        results = [{
+            "id": gate.id,
+            "name" : gate.name
+        }for gate in locations]
+        return {"all_boarding_gates": results}
+
+
+
 
 @app.route('/flight/<flight_id>', methods=['DELETE'])
-def deleteFlight(©):
+def deleteFlight():
     flight = FlightsModel.query.get(flight_id).delete()
     
     db.session.commit()
