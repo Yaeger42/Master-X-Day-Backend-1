@@ -11,13 +11,13 @@ function createFlights(element) {
 function loadData() {
     $.ajax({
         type: 'GET'
-        , url: 'urlservicio'
+        , url: 'localhost:5000/flights'
         , success: function (result) {
             while (document.getElementById('totalFlightsTable').childNodes.length !== 0) {
                 document.getElementById("totalFlightsTable").childNodes.forEach(element => { element.remove() })
             }
-            result.data.forEach(element => {
-                document.getElementById("totalFlightsTable").insertAdjacentHTML("beforeend", '<tr><th scope="row">' + element.id + '</th><td>' + element.city + '</td><td>' + element.country + '</td><td>' + element.flightsh + '</td><td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights(' + element + ')" /></td><td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights(' + element + ')" /></td></tr>')
+            result.all_flights.forEach(element => {
+                document.getElementById("totalFlightsTable").insertAdjacentHTML("beforeend", '<tr><th scope="row">' + element.id + '</th><td>' + element.desinationId + '</td><td>' + element.originId + '</td><td>' + element.originId + '</td><td><button type="button" class="btn btn-primary fas fa-edit" onclick="editFlights(' + element + ')" /></td><td><button type="button" class="btn btn-primary fas fa-trash" onclick="deleteFlights(' + element + ')" /></td></tr>')
             })
         }
         , error: function (jqXHR, textStatus, errorThrown) {
