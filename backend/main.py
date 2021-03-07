@@ -3,11 +3,13 @@ from app import create_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 from flask_migrate import Migrate
+from flask_cors import CORS
 #from app.models import flightModel
 #from app.config.db import Db
 
 
 app = create_app()
+CORS(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -119,7 +121,11 @@ def getAllFlights():
             "flightStatusId": flight.flightstatusid
         }for flight in flights]
 
-        return {"all_flights": results}
+        return {
+            "headers": {
+                "statusCode": 200
+            }, 
+            "all_flights": results}
 
 
 @app.route('/locations', methods=['GET'])
