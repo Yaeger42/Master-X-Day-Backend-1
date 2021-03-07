@@ -224,15 +224,35 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create a new Flight</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form class="form-row">
                             <div class="mb-3 col-md3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <label for="destination_field" class="form-label">Destination</label>
+                                <input type="text" class="form-control" id="destination_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="origin_field" class="form-label">Origin</label>
+                                <input type="text" class="form-control" id="origin_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="arrival_input" class="form-label">Arrival</label>
+                                <input type="date" class="form-control" id="arrival_input">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="departure_input" class="form-label">Departure</label>
+                                <input type="date" class="form-control" id="departure_input"
                                     aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="passenger_number_field" class="form-label">Amount of Passengers</label>
+                                <input type="number" class="form-control" id="passenger_number_field">
+                            </div>
+                            <div class="mb-3 col-md3">
+                                <label for="boarding_gate_input" class="form-label">Boarding Gate</label>
+                                <input type="text" class="form-control" id="boarding_gate_input">
                             </div>
                         </form>
                     </div>
