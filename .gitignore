@@ -2,3 +2,5 @@ db/postgresVolume
 .env
 .vscode
 __pycache__
+
+AeroPlatzi/vendor
