@@ -1,4 +1,4 @@
-function editFlights(element) {
+function editFlights() {
     $('#modalEditFlights').modal('toggle')
 }
 function deleteFlights(element) {
@@ -95,8 +95,7 @@ function sendFlightEdit() {
             FlightId: document.getElementById("edit_id").value,
             Origin: document.getElementById("edit_origin_field").value,
             Deswtination: document.getElementById("edit_destination_field").value,
-            Arrival: document.getElementById("edit_arrival_input").value,
-            Departure: document.getElementById("edit_departure_input").value,
+            Arrival: document.getElementById("edit_arrival_input").value,            
             AmountOfPassengers: document.getElementById("edit_passenger_number_field").value,
             BoardingGate: document.getElementById("edit_boarding_gate_input").value
         }

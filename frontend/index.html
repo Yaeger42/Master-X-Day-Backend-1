@@ -40,7 +40,7 @@
     </div>
     <div class="container row">
         <section class="mt-3 col-md-12">
-            <button class="btn btn-primary" type="button" onclick="createFlights()" >
+            <button class="btn btn-primary" type="button" onclick="createFlights()">
                 Add Flight
             </button>
         </section>
@@ -57,8 +57,8 @@
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody id="totalFlightsTable" >
-                    
+                <tbody id="totalFlightsTable">
+
                 </tbody>
             </table>
         </section>
@@ -148,28 +148,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="form row">                            
-                            <div style="display: none;">                                
+                        <form class="form row">
+                            <div style="display: none;">
                                 <input type="datetime-local" class="form-control" id="edit_id">
                             </div>
                             <div class="mb-3 col-md-3">
                                 <label for="edit_origin_field" class="form-label">Origin</label>
                                 <select class="form-select" aria-label="Select Origin" id="edit_origin_field">
                                 </select>
-                            </div>
-                            <div class="mb-3 col-md-3">
-                                <label for="edit_destination_field" class="form-label">Destination</label>
-                                <select class="form-select" aria-label="Select Destination" id="edit_destination_field">
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-3">
-                                <label for="edit_arrival_input" class="form-label">Arrival</label>
-                                <input type="datetime-local" class="form-control" id="edit_arrival_input">
-                            </div>
-                            <div class="mb-3 col-md-3">
-                                <label for="edit_departure_input" class="form-label">Departure</label>
-                                <input type="datetime-local" class="form-control" id="edit_departure_input"
-                                    aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3 col-md-3">
                                 <label for="edit_passenger_number_field" class="form-label">Amount of Passengers</label>
@@ -179,7 +165,16 @@
                                 <label for="edit_boarding_gate_input" class="form-label">Boarding Gate</label>
                                 <select class="form-select" aria-label="Select Boarding" id="edit_boarding_gate_input">
                                 </select>
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="edit_destination_field" class="form-label">Destination</label>
+                                <select class="form-select" aria-label="Select Destination" id="edit_destination_field">
+                                </select>
                             </div>                            
+                            <div class="mb-3 col-md-3">
+                                <label for="edit_arrival_input" class="form-label">Arrival</label>
+                                <input type="datetime-local" class="form-control" id="edit_arrival_input">
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -216,34 +211,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="form-row">
-                            <div class="mb-3 col-md3">
-                                <label for="create_destination_field" class="form-label">Destination</label>                                
+                        <form class="form row">
+                            <div class="mb-3 col-md-3">
+                                <label for="create_destination_field" class="form-label">Destination</label>
                                 <select class="form-select" aria-label="Select Boarding" id="create_destination_field">
                                 </select>
                             </div>
-                            <div class="mb-3 col-md3">
+                            <div class="mb-3 col-md-3">
                                 <label for="create_origin_field" class="form-label">Origin</label>
                                 <select class="form-select" aria-label="Select Boarding" id="create_origin_field">
-                                </select>                                
+                                </select>
                             </div>
-                            <div class="mb-3 col-md3">
-                                <label for="create_arrival_input" class="form-label">Arrival</label>
-                                <input type="datetime-local" class="form-control" id="create_arrival_input">
+                            <div class="mb-3 col-md-3">
+                                <label for="create_passenger_number_field" class="form-label">Amount of
+                                    Passengers</label>
+                                    <input type="number" class="form-control" id="create_passenger_number_field">
+                                </div>
+                                <div class="mb-3 col-md-3">
+                                    <label for="create_boarding_gate_input" class="form-label">Boarding Gate</label>
+                                    <select class="form-select" aria-label="Select Boarding"
+                                    id="create_boarding_gate_input">
+                                </select>
                             </div>
-                            <div class="mb-3 col-md3">
+                            <div class="mb-3 col-md-3">
                                 <label for="create_departure_input" class="form-label">Departure</label>
                                 <input type="datetime-local" class="form-control" id="create_departure_input"
-                                aria-describedby="emailHelp">
+                                    aria-describedby="emailHelp">
                             </div>
-                            <div class="mb-3 col-md3">
-                                <label for="create_passenger_number_field" class="form-label">Amount of Passengers</label>
-                                <input type="number" class="form-control" id="create_passenger_number_field">
-                            </div>
-                            <div class="mb-3 col-md3">
-                                <label for="create_boarding_gate_input" class="form-label">Boarding Gate</label>                                
-                                <select class="form-select" aria-label="Select Boarding" id="create_boarding_gate_input">
-                                </select>                                
+                            <div class="mb-3 col-md-3">
+                                <label for="create_arrival_input" class="form-label">Arrival</label>
+                                <input type="datetime-local" class="form-control" id="create_arrival_input">
                             </div>
                         </form>
                     </div>
